@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Number Guessing Game</title>
+	<style type="text/css">
+		div{
+			margin: auto;
+			width: 500px;
+			height: 350px;
+			background: rgb(2,0,36);
+			background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(185,83,45,1) 26%, rgba(83,99,207,1) 50%, rgba(171,108,119,1) 73%, rgba(203,34,189,1) 100%);
+			border-radius: 20px;
+		}
+		h2{
+			font-size: 50px;
+			color: pink;
+			text-align: center;
+			padding: 40px 0;
+		}
+		h3{
+			text-align: center;
+			margin-bottom: 55px;
+			font-size: 30px;
+			animation: h3color 1s infinite;
+		}
+		@keyframes h3color{
+			0%{
+				color: #90e0ef;
+			}
+			25%{
+				color: #0096c7;
+			}
+			50%{
+				color: #0077b6;
+			}
+			75%{
+				color: #023e8a;
+			}
+			100%{
+				color: #03045e;
+			}
+		}
+
+		.flex{
+			display: flex;
+			flex-direction: column;
+			align-content:center;
+			align-items: center;
+		}
+		button:hover{
+			width: 138px;
+			height: 60px;
+		}
+		button{
+			font-size: 18px;
+			font-weight: bold;
+			cursor: pointer;
+			border: 2px solid;
+			border-radius: 20px;
+			width: 128px;
+			height: 50px;
+			padding: 10px 20px;
+			margin: 10px 0;
+			animation: btncolor 2s infinite linear;
+			transition: width 0.5s, height 1s;
+		}
+		@keyframes btncolor{
+			0%{
+				border-color: blueviolet;
+			}
+			50%{
+				border-color: orangered;
+			}
+			100%{
+				border-color: greenyellow;
+			}
+		}
+		.btn1{
+			background: red;
+		}
+		.btn2{
+			background: green;
+		}
+		.btn3{
+			background: blue;
+		}
+		.btn4{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h2>Guess A Number</h2>
+			<h3>Choose your range and guess!!</h3>
+		<div class="flex">
+			<button onclick="first()" type="button" class="btn1" id="button1">10 ~ 100</button>
+			<button onclick="second()" type="button" class="btn2" id="button2">1 ~ 10</button>
+			<button onclick="third()" type="button" class="btn3" id="button3">10 ~ 200</button>
+			<button onclick="fouth()" type="button" class="btn4" id="button4">100 ~ 200</button>
+		</div>	
+	</div>
+<script type="text/javascript">
+	function first() {
+		let number = prompt("Guess a number between 10 and 100!")
+		// for clicking Cancel and OK without value
+		while (number === null) {
+			return
+		}
+		while (number === '' || number === null){
+			if (number === null) {
+			return
+		}
+			number = prompt("You must enter a number,please!")
+			if (number != '' && number != null){
+				break
+			}
+		}
+
+		num = parseInt(number)
+		let value = Math.floor((Math.random() * 91) + 10);
+		 // console.log(value)
+		while(num != value || num === null){
+			if (num === null) {
+				return
+			}
+			while (num === '' || number === null) {
+				if (number === null) {
+					return
+				}
+				num = prompt("You must enter a number,please!")
+				if (num != '') {
+					break
+				}
+			}
+			if (num < value) {
+				alert("Wrong number...your guessing is low!")
+			}
+			if (num > value) {
+				alert("Wrong number...your guessing is high!")
+			}
+			num = prompt("Guess a number between 10 and 100!")
+			if (parseInt(num) === value) {
+				break
+			}
+		}
+		alert("Congratulation.....You are right!")
+	}
+	
+	function second() {
+		let number = prompt("Guess a number between 1 and 10!")
+		// for clicking Cancel and OK without value
+		while (number === null) {
+			return
+		}
+		while (number === '' || number === null){
+			if (number === null) {
+			return
+		}
+			number = prompt("You must enter a number,please!")
+			if (number != '' && number != null){
+				break
+			}
+		}
+
+		num = parseInt(number)
+		let value = Math.floor((Math.random() * 10) + 1)
+		 // console.log(value)
+		while(num != value || num === null){
+			if (num === null) {
+				return
+			}
+			while (num === '' || number === null) {
+				if (number === null) {
+					return
+				}
+				num = prompt("You must enter a number,please!")
+				if (num != '') {
+					break
+				}
+			}
+			if (num < value) {
+				alert("Wrong number...your guessing is low!")
+			}
+			if (num > value) {
+				alert("Wrong number...your guessing is high!")
+			}
+			num = prompt("Guess a number between 1 and 10!")
+			if (parseInt(num) === value) {
+				break
+			}
+		}
+		alert("Congratulation.....You are right!")
+	}
+
+	function third() {
+		let number = prompt("Guess a number between 10 and 200!")
+		// for clicking Cancel and OK without value
+		while (number === null) {
+			return
+		}
+		while (number === '' || number === null){
+			if (number === null) {
+			return
+		}
+			number = prompt("You must enter a number,please!")
+			if (number != '' && number != null){
+				break
+			}
+		}
+
+		num = parseInt(number)
+		let value = Math.floor((Math.random() * 191) + 10)
+		 // console.log(value)
+		while(num != value || num === null){
+			if (num === null) {
+				return
+			}
+			while (num === '' || number === null) {
+				if (number === null) {
+					return
+				}
+				num = prompt("You must enter a number,please!")
+				if (num != '') {
+					break
+				}
+			}
+			if (num < value) {
+				alert("Wrong number...your guessing is low!")
+			}
+			if (num > value) {
+				alert("Wrong number...your guessing is high!")
+			}
+			num = prompt("Guess a number between 10 and 200!")
+			if (parseInt(num) === value) {
+				break
+			}
+		}
+		alert("Congratulation.....You are right!")
+	}
+
+	function fouth() {
+		let number = prompt("Guess a number between 100 and 200!")
+		// for clicking Cancel and OK without value
+		while (number === null) {
+			return
+		}
+		while (number === '' || number === null){
+			if (number === null) {
+			return
+		}
+			number = prompt("You must enter a number,please!")
+			if (number != '' && number != null){
+				break
+			}
+		}
+
+		num = parseInt(number)
+		let value = Math.floor((Math.random() * 101) + 100)
+		 // console.log(value)
+		while(num != value || num === null){
+			if (num === null) {
+				return
+			}
+			while (num === '' || number === null) {
+				if (number === null) {
+					return
+				}
+				num = prompt("You must enter a number,please!")
+				if (num != '') {
+					break
+				}
+			}
+			if (num < value) {
+				alert("Wrong number...your guessing is low!")
+			}
+			if (num > value) {
+				alert("Wrong number...your guessing is high!")
+			}
+			num = prompt("Guess a number between 100 and 200!")
+			if (parseInt(num) === value) {
+				break
+			}
+		}
+		alert("Congratulation.....You are right!")
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BMI Calculator</title>
+	<style type="text/css">
+		div{
+			border: 3px solid;
+			border-radius: 20px;
+			margin: 60px 380px;
+			background: linear-gradient(to bottom right, red, blue);
+			animation: bordercolorful 1s infinite;
+			
+		}
+		@keyframes bordercolorful{
+			0%{
+				border-color: red;
+			}
+			25%{
+				border-color: blue;
+			}
+			75%{
+				border-color: yellow;
+			}
+			100%{
+				border-color: darkgray;
+			}
+		}
+		
+		label{
+			color: white;
+			font-weight: bold;
+			padding: 10px;
+			font-size: 28px;
+			
+		}
+		input:hover{
+			border: 3px solid;
+			width: 160px;
+			height: 40px;
+			color: red;
+			animation: inputcolor 1s infinite;
+		}
+		@keyframes inputcolor{
+			0%{
+				border-color: red;
+			}
+			25%{
+				border-color: blue;
+			}
+			75%{
+				border-color: yellow;
+			}
+			100%{
+				border-color: darkgray;
+			}
+		}
+		input{
+			margin: 40px 10px;
+			border-radius: 12px;
+			width: 150px;
+			height: 30px;
+			font-size: 25px;
+			text-align: center;
+			transition: width 0.5s, height 0.5s;
+		}
+		button:hover{
+			width: 210px;
+			height: 60px;
+		}
+		
+
+		button{
+			width: 200px;
+			height: 50px;
+			border-radius: 20px;
+			border: 3px solid;
+			background-color: darkcyan;
+			font-weight: bold;
+			font-size: 28px;
+			color: papayawhip;
+			cursor: pointer;
+			margin-top: 40px;
+			margin-bottom: 150px;
+			animation: colorful 1s linear;
+			animation-iteration-count: infinite;
+			transition: width 0.5s, height 0.5s;
+		}
+		@keyframes colorful{
+			0%{
+				border-color: red;
+			}
+			25%{
+				border-color: blue;
+			}
+			75%{
+				border-color: yellow;
+			}
+			100%{
+				border-color: darkgray;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<form>
+			<center>
+				<label>Enter your height :</label>
+				<input type="number" id="feet" placeholder=" in feet" required>
+				<input type="number" id="inch" placeholder=" in inches" required>
+			</center>
+			<center>
+				<label>Enter your weight :</label>
+				<input type="number" id="pound" placeholder=" in pounds" required>
+			</center>
+			<center>
+				<button type="button" id="btn" onclick="compute()">Compute BMI</button>
+			</center>
+			<center>
+				<label>Your BMI :</label>
+				<input type="text" id="bmiresult" readonly>
+			</center>
+		</form>
+		
+			
+	</div>
+	<script type="text/javascript">
+		
+		function compute() {
+			if (document.querySelector("#feet").value === "") {
+				alert("Fill your height in feet!")
+			}
+			if (document.querySelector("#inch").value === "") {
+				alert("Fill your height in inch!")
+			}
+			if (document.querySelector("#pound").value === "") {
+				alert("Fill your weight in pound.")
+			}
+
+			let height_ft = parseFloat(document.querySelector("#feet").value)
+			let height_in = parseFloat(document.querySelector("#inch").value)
+			let height = (height_ft * 12) + height_in
+			let weight = parseFloat(document.querySelector("#pound").value)
+			let bmi = 0.0
+			bmi = (703 * weight) / height ** 2
+			if ( isNaN(bmi) ) {
+				bmi = ""
+			}
+			document.querySelector("#bmiresult").value = bmi.toFixed(1)
+
+			if (bmi <= 18.5) {
+				alert("Underweight")
+			}else if (bmi > 18.5 && bmi < 24.9){
+				alert("Normal weight")
+			}else if(bmi >= 25 && bmi <= 29.9){
+				alert("Overweight")
+			}else{
+				alert("Obesity")
+			}
+		}
+	</script>
+</body>
+</html>
